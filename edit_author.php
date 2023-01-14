@@ -13,7 +13,7 @@
 
         $query = $koneksi->query("UPDATE author SET password = '$password', nickname = '$nickname' WHERE username = '$username'");
 
-        if($query->affected_rows > 0) {
+        if($koneksi->affected_rows > 0) {
             http_response_code(200);
                 echo json_encode(array('message' => 'success'));
         } else {    
