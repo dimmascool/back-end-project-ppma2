@@ -1,0 +1,24 @@
+<?php
+    header("Content-type: Application/json");
+    
+    require 'koneksi.php';
+
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $nickname = $_POST['nickname'];
+
+        // checking username if already exist
+
+        $query = $koneksi->query("UPDATE author SET password = '$password', nickname = '$nickname' WHERE username = '$username'");
+
+        if($query->affected_rows > 0) {
+            http_response_code(200);
+                echo json_encode(array('message' => 'success'));
+        } else {    
+            http_response_code(500);
+            echo json_encode(array('message' => $koneksi->error));
+        }
+    }    
+?>
