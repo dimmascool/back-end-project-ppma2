@@ -10,7 +10,7 @@
 
         // checking username if already exist
 
-        $query = $koneksi->query("UPDATE user SET password = '$password' WHERE username = '$username'");
+        $query = $koneksi->query("UPDATE user SET `password`='$password' WHERE username = '$username'");
 
         if($query->affected_rows > 0) {
             http_response_code(200);
