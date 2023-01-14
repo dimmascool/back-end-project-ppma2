@@ -3,10 +3,10 @@
     
     require 'koneksi.php';
 
-    if($_SERVER['REQUEST_METHOD']=='POST'){
+    if($_SERVER['REQUEST_METHOD']=='DELETE'){
 
-        $delete = $_POST['delete'];
-        $username = $_POST['username'];
+        $delete = $_DELETE['delete'];
+        $username = $_DELETE['username'];
 
         if ($delete == "admin") {
             $query = $koneksi->query("DELETE FROM admin WHERE username = '$username'");
