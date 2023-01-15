@@ -6,7 +6,7 @@
     if($_SERVER['REQUEST_METHOD']=='POST'){
 
         $delete = $_POST['delete'];
-        $username = $_POST['username'];
+        $username = $_POST['username'];        
 
         if ($delete == "admin") {
             $query = $koneksi->query("DELETE FROM admin WHERE username = '$username'");
@@ -38,7 +38,18 @@
                 http_response_code(500);
                 echo json_encode(array('message' => 'error'));
             }
-        }
+        } else if ($delete == "berita") {
+            $id_berita = $_POST['id_berita'];
+            $query = $koneksi->query("DELETE FROM berita WHERE id_berita = '$id_berita'");
+
+            if ($query) {
+                http_response_code(200);
+                echo json_encode(array('message' => 'success'));
+            } else {                
+                http_response_code(500);
+                echo json_encode(array('message' => 'error'));
+            }
+        } 
 
     }    
 ?>
