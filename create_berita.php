@@ -12,9 +12,8 @@
         $create_at = date("Y-m-d h:i");
         $update_at = "";
         $kategori = $_POST['kategori'];
-        $tag = $_POST['tag'];
-        
-        $query_add = $koneksi->query("INSERT INTO `berita` ( `judul`, `isi`, `create_at`, `update_at`, `author_id`, `kategori`, `tag`, `thumbnail`) VALUES ('$judul','$isi','$create_at','$update_at','$author_id','$kategori','$tag','$image')");
+
+        $query_add = $koneksi->query("INSERT INTO `berita` ( `judul`, `isi`, `create_at`, `update_at`, `author_id`, `kategori`, `thumbnail`) VALUES ('$judul','$isi','$create_at','$update_at','$author_id','$kategori','$image')");
 
         if($query_add) {
             http_response_code(200);

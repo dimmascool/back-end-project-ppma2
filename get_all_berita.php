@@ -12,13 +12,20 @@
         if($query_checking->num_rows > 0) {
             $data_list = array();
             foreach ($query_checking as $data) {
+                $kategori = $data['kategori'];
+                $query_kategori = $koneksi->query("SELECT * FROM kategori WHERE id_kategori = '$kategori'");
+                $data_kategori = $query_kategori->fetch_assoc();
+
+                $author_id = $data['author_id'];
+                $data_author = $koneksi->query("SELECT * FROM author WHERE id = '$author_id'");
+                $nama_author = $data_author->fetch_assoc()['nickname'];
                 array_push($data_list, array(
                     'id_berita'             => $data['id_berita'],
-                    'url_thumbnail'        => 'http://localhost/back-end-project-ppma2/image_viewer.php?id_berita='. $data['id_berita'], 
+                    'url_thumbnail'         => 'http://localhost/back-end-project-ppma2/image_viewer.php?id_berita='. $data['id_berita'], 
                     'judul'                 => $data['judul'],
                     'isi'                   => $data['isi'],
-                    'kategori'              => $data['kategori'],
-                    'tag'                   => $data['tag'],
+                    'author'                => $nama_author,
+                    'kategori'              => $data_kategori['kategori'],
                     'tanggal_dibuat'        => $data['create_at'],
                     'tanggal_diupdate'      => $data['update_at']
                 ));
