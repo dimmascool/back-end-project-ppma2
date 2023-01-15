@@ -11,10 +11,10 @@
         // checking username if already exist
 
         $query_checking = $koneksi->query("SELECT * FROM admin WHERE username = '$username' AND password = '$password'");
-
         if($query_checking->num_rows > 0) {
+            $data_admin= $query_checking->fetch_assoc();
             http_response_code(200);
-            echo json_encode(array('message' => 'login success'));
+            echo json_encode(array('message' => 'login success', 'data_admin' => ['admin_id' => $data_admin['admin_id']]));
         } else {
             http_response_code(401);
             echo json_encode(array('message' => 'wrong username or password'));

@@ -15,7 +15,7 @@
         if($query_checking->num_rows > 0) {
             $data_author = $query_checking->fetch_assoc();
             http_response_code(200);
-            echo json_encode(array('message' => 'login success', 'data_author' => ['nickname' => $data_author['nickname']]));
+            echo json_encode(array('message' => 'login success', 'data_author' => ['author_id' => $data_author['id']]));
         } else {
             http_response_code(401);
             echo json_encode(array('message' => 'wrong username or password'));
