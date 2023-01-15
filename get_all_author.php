@@ -16,7 +16,8 @@
                     'author_id'  => $data['id'],
                     'username'  => $data['username'],
                     'password'  => $data['password'],
-                    'nickname'  => $data['nickname']                   
+                    'nickname'  => $data['nickname'],
+                    'status'  => $data['status']                   
                 ));
             }
             echo json_encode(array('data_author' => $data_list));
