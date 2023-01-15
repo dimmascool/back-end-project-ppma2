@@ -17,7 +17,7 @@
             http_response_code(409);
             echo json_encode(array('message' => 'author already exist'));
         } else {
-            $query = $koneksi->query("INSERT INTO `author` (`username`, `password`, `nickname`) VALUES ('$username','$password','$nickname')");
+            $query = $koneksi->query("INSERT INTO `author` (`username`, `password`, `nickname`, `status`) VALUES ('$username','$password','$nickname', 'active')");
             if ($query) {
                 http_response_code(200);
                 echo json_encode(array('message' => 'success'));

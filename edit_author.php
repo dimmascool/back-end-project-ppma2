@@ -8,10 +8,11 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
         $nickname = $_POST['nickname'];
+        $status = $_POST['status'];
 
         // checking username if already exist
 
-        $query = $koneksi->query("UPDATE author SET password = '$password', nickname = '$nickname' WHERE username = '$username'");
+        $query = $koneksi->query("UPDATE author SET password = '$password', nickname = '$nickname', status = '$status' WHERE username = '$username'");
 
         if($koneksi->affected_rows > 0) {
             http_response_code(200);
