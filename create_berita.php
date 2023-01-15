@@ -13,9 +13,7 @@
         $update_at = "";
         $kategori = $_POST['kategori'];
         $tag = $_POST['tag'];
-
-        var_dump($_FILES);
-
+        
         $query_add = $koneksi->query("INSERT INTO `berita` ( `judul`, `isi`, `create_at`, `update_at`, `author_id`, `kategori`, `tag`, `thumbnail`) VALUES ('$judul','$isi','$create_at','$update_at','$author_id','$kategori','$tag','$image')");
 
         if($query_add) {
